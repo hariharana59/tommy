@@ -1,0 +1,241 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Black screen and button */
+#black-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+#celebrate-btn {
+    background-color: #2b2b2b;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#celebrate-btn:hover {
+    background-color: #2e2d2e;
+}
+
+/* Confetti canvas */
+#confetti-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 5;
+}
+
+/* Celebration text */
+#celebration-text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem; /* Adjusted for mobile */
+    color: #618685;
+    text-align: center;
+    display: none;
+    z-index: 8;
+    padding: 0 1rem; /* Added padding for better readability */
+}
+
+
+
+/* Sad message */
+#sad-message {
+    display: none;
+    position: absolute;
+    top: 60%; /* Adjusted for mobile */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.7rem; /* Reduced font size for mobile */
+    color: #484f4f;
+    text-align: center;
+    white-space: pre-wrap; /* Preserve spaces and line breaks */
+    z-index: 12;
+    padding: 0 0.5rem; /* Added padding for better readability */
+    max-width: 90%; /* Ensure message fits within screen width */
+    word-wrap: break-word; /* Break long words if necessary */
+}
+
+/* Hearts Container */
+#hearts-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 6;
+    display: none; /* Hidden initially */
+}
+
+.heart {
+    position: absolute;
+    width: 20px; /* Size of the heart */
+    height: 20px;
+    background: url('heart.png') no-repeat center center; /* Use a heart image */
+    background-size: contain;
+    opacity: 0;
+    animation: floatAndFade 6s ease-in-out infinite; /* Infinite loop of animation */
+}
+
+/* Floating and fading animation */
+@keyframes floatAndFade {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-60px); /* Adjust distance as needed */
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-120px); /* Adjust distance as needed */
+    }
+}
+
+/* Typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.word {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Hearts Container */
+#hearts-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 6;
+    display: none; /* Hidden initially */
+}
+
+.heart {
+    position: absolute;
+    width: 30px; /* Adjusted size for mobile */
+    height: 30px;
+    background: url('heart.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0;
+    animation: floatAndFade 6s ease-in-out forwards;
+}
+
+/* Floating and fading animation */
+@keyframes floatAndFade {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-100px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+}
+
+/* Stars Container */
+#stars-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 9;
+    display: none;
+}
+
+.star {
+    position: absolute;
+    width: 10px; /* Adjusted size for mobile */
+    height: 10px;
+    background: url('star.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0;
+    animation: floatAndFade 8s ease-in-out forwards;
+}
+
+/* Images Container */
+#images-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 7;
+    display: none; /* Hidden initially */
+}
+
+.animated-image {
+    position: absolute;
+    width: 80px; /* Adjusted size for mobile */
+    height: auto;
+    opacity: 0;
+    animation: floatAndFade 6s ease-in-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #celebrate-btn {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    #celebration-text {
+        font-size: 1rem; /* Reduced font size for mobile */
+        padding: 0 0.5rem; /* Adjusted padding for smaller screens */
+    }
+
+    #sad-message {
+        font-size: 0.9rem; /* Further reduced font size for smaller screens */
+        padding: 0 0.5rem; /* Adjusted padding for smaller screens */
+    }
+
+    .heart {
+        width: 25px; /* Smaller hearts for mobile */
+        height: 25px;
+    }
+
+    .star {
+        width: 8px; /* Smaller stars for mobile */
+        height: 8px;
+    }
+
+    .animated-image {
+        width: 70px; /* Smaller images for mobile */
+    }
+}
