@@ -9,6 +9,56 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
+/* Hearts animation */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    animation: floatHeart 5s infinite ease-in-out;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: scale(0.5) translateY(0);
+    }
+    100% {
+        transform: scale(1.2) translateY(-600px);
+    }
+}
+
+/* Stars animation */
+.star {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    border-radius: 50%;
+    animation: twinkleStar 2s infinite ease-in-out;
+}
+
+@keyframes twinkleStar {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Word-by-word sad message animation */
+.word {
+    opacity: 0;
+    animation: fadeInWord 1s forwards;
+}
+
+@keyframes fadeInWord {
+    100% {
+        opacity: 1;
+    }
+}
+
 
 /* Black screen and button */
 #black-screen {
